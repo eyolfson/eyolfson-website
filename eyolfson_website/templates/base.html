@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Jon Eyolfson's personal web page." />
+    <title>{% block title %}Jon Eyolfson{% endblock %}</title>
+    <link type="image/x-icon" href="/favicon.ico" rel="icon" />
+    <link rel="stylesheet" href="/media/css/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="/media/css/print.css" type="text/css" media="print" />
+    <!--[if lt IE 8]><link rel="stylesheet" href="/media/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h1><a href="/">Jon Eyolfson</a></h1>
+{% block divider %}      <hr />{% endblock %}
+{% block content %}{% endblock %}
+    </div>
+
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-15585099-1");
+        pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>

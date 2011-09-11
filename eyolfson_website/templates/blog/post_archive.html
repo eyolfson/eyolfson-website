@@ -1,0 +1,24 @@
+{% extends "base_blog.html" %}
+
+{% block content %}
+<h1>Latest Blog Postings</h1>
+
+{% for object in latest %}
+<h2><a href="{{ object.get_absolute_url }}">{{ object.title|safe }}</a></h2>
+<p class="indented">{{ object.body|safe }}</p>
+<p>Posted by <strong>{{ object.author.first_name }}</strong> on {{ object.pub_date|date:"F j, Y" }}</p>
+{% empty %}
+<p class="stand-alone">There are no posts.</p>
+{% endfor %}
+
+{% if date_list %}
+<div id="related-links">
+  <div class="related-links-heading">Posts by Year</div>
+  <ul>
+    {% for date in date_list %}
+    <li><a href="{% url blog_year date|date:"Y" %}">{{ date|date:"Y" }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{% endblock %}

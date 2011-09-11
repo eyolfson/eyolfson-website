@@ -1,0 +1,9 @@
+{% extends "base_blog.html" %}
+
+{% block content %}
+<h1>Blog Post</h1>
+
+<h2><a href="{{ object.get_absolute_url }}">{{ object.title|safe }}</a></h2>
+<p class="indented">{{ object.body|safe }}</p>
+<p>Posted by <strong>{{ object.author.first_name }}</strong> on {{ object.pub_date|date:"F j, Y" }}</p>
+{% endblock %}
