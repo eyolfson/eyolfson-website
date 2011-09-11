@@ -14,8 +14,11 @@ from settings_local import SECRET_KEY
 USE_I18N = False
 USE_L10N = False
 
-TEMPLATE_DIRS = [BASE.child('templates')]
-MEDIA_ROOT = BASE.parent.child('media')
+here = os.path.dirname(__file__)
+parent = os.path.dirname(here)
+
+TEMPLATE_DIRS = [os.path.join(here, 'templates')]
+MEDIA_ROOT = os.path.join(parent, 'media')
 
 if PRODUCTION:
     DEBUG = False
