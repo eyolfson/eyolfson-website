@@ -1,6 +1,5 @@
 import os
 import platform
-from unipath import FSPath as Path
 
 PRODUCTION = 'laforge' in platform.node()
 
