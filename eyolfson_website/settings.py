@@ -1,8 +1,8 @@
 import os
 import getpass
-import platform
+from unipath import FSPath as Path
 
-PRODUCTION = ('http' == getpass.getuser()) and ('laforge' in platform.node())
+PRODUCTION = 'http' == getpass.getuser()
 
 ADMINS = (('Jon Eyolfson', 'jon@eyolfson.com'))
 MANAGERS = ADMINS
@@ -14,12 +14,9 @@ from settings_local import *
 USE_I18N = False
 USE_L10N = False
 
-here = os.getcwd()
-parent = os.path.dirname(here)
-
-TEMPLATE_DIRS = [os.path.join(here, 'templates')]
-# MEDIA_ROOT = os.path.join(parent, 'media')
-MEDIA_ROOT = '/home/jon/git/eyolfson.com/media'
+BASE = Path(__file__).absolute().ancestor(1)
+TEMPLATE_DIRS = [BASE.child('templates')]
+MEDIA_ROOT = BASE.parent.child('media')
 
 if PRODUCTION:
     DEBUG = False
