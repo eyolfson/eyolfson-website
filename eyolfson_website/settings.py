@@ -1,23 +1,25 @@
 import os
+import getpass
 import platform
 
-PRODUCTION = 'laforge' in platform.node()
+PRODUCTION = ('http' == getpass.getuser()) and ('laforge' in platform.node())
 
 ADMINS = (('Jon Eyolfson', 'jon@eyolfson.com'))
 MANAGERS = ADMINS
 TIME_ZONE = 'America/Toronto'
 
-from settings_local import DATABASES
-from settings_local import SECRET_KEY
+# settings_local should contain at least SECRET_KEY
+from settings_local import *
 
 USE_I18N = False
 USE_L10N = False
 
-here = os.path.dirname(__file__)
+here = os.getcwd()
 parent = os.path.dirname(here)
 
 TEMPLATE_DIRS = [os.path.join(here, 'templates')]
-MEDIA_ROOT = os.path.join(parent, 'media')
+# MEDIA_ROOT = os.path.join(parent, 'media')
+MEDIA_ROOT = '/home/jon/git/eyolfson.com/media'
 
 if PRODUCTION:
     DEBUG = False

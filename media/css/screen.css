@@ -244,7 +244,7 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix, .container {display:block;}
 .clear {clear:both;}
-dt img {vertical-align:text-bottom;}
+dd img {vertical-align:text-bottom;}
 #breadcrumbs {height:1.5em;margin: 0 1.5em 1.5em 0;}
 #breadcrumbs ul {display:inline-block;list-style-type:none;border:1px solid #dedede;padding:0 9px 0 0;}
 #breadcrumbs ul li {float:left;color:#777;padding-left:9px;}
