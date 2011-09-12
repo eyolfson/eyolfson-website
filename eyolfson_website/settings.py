@@ -2,7 +2,7 @@ import os
 import getpass
 from unipath import FSPath as Path
 
-PRODUCTION = 'http' == getpass.getuser()
+PRODUCTION = 'root' == getpass.getuser()
 
 ADMINS = (('Jon Eyolfson', 'jon@eyolfson.com'))
 MANAGERS = ADMINS
