@@ -26,10 +26,10 @@ else:
 TEMPLATE_DEBUG = DEBUG
 
 WEBSITE_DIR = os.path.dirname(__file__)
-PROJECT_DIR = os.path.split(WEBSITE_DIR)[0]
+FILES_DIR = os.path.join(os.path.split(WEBSITE_DIR)[0], 'files')
 
-MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+MEDIA_ROOT = os.path.join(FILES_DIR, 'media')
+STATIC_ROOT = os.path.join(FILES_DIR, 'static')
 FIXTURE_DIRS = (os.path.join(WEBSITE_DIR, 'fixtures'),)
 STATICFILES_DIRS = (os.path.join(WEBSITE_DIR, 'static'),)
 TEMPLATE_DIRS = (os.path.join(WEBSITE_DIR, 'templates'),)
