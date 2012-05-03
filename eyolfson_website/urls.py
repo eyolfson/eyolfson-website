@@ -27,7 +27,4 @@ if not settings.PRODUCTION:
         url(r'^media/(?P<path>.*)', 'static.serve', {
             'document_root': settings.MEDIA_ROOT,
         }),
-        url(r'^favicon\.ico$', 'generic.simple.redirect_to', {
-            'url': settings.MEDIA_URL+'favicon.ico'
-        }),
     )
