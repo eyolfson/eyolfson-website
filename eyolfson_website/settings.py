@@ -1,34 +1,43 @@
+from settings_local import *
 import os
-import getpass
-from unipath import FSPath as Path
-
-PRODUCTION = 'root' == getpass.getuser()
 
 ADMINS = (('Jon Eyolfson', 'jon@eyolfson.com'))
 MANAGERS = ADMINS
+
 TIME_ZONE = 'America/Toronto'
-
-# settings_local should contain at least SECRET_KEY
-from settings_local import *
-
+LANGUAGE_CODE = 'en-us'
 USE_I18N = False
 USE_L10N = False
 
-BASE = Path(__file__).absolute().ancestor(1)
-TEMPLATE_DIRS = [BASE.child('templates')]
-MEDIA_ROOT = BASE.parent.child('media')
+SITE_ID = 1
+ROOT_URLCONF = 'eyolfson_website.urls'
+WSGI_APPLICATION = 'eyolfson_website.wsgi.application'
 
 if PRODUCTION:
     DEBUG = False
-    MEDIA_URL = "http://www.eyolfson.com/"
-    ADMIN_MEDIA_PREFIX = "http://www.eyolfson.com/admin/"
+    MEDIA_URL = 'http://www.eyolfson.com/media/'
+    STATIC_URL = 'http://www.eyolfson.com/static/'
+    ADMIN_MEDIA_PREFIX = 'http://www.eyolfson.com/static/admin/'
 else:
     DEBUG = True
-    MEDIA_URL = "/media/"
-    ADMIN_MEDIA_PREFIX = '/admin_media/'
+    MEDIA_URL = '/media/'
+    STATIC_URL = '/static/'
+    ADMIN_MEDIA_PREFIX = '/static/admin/'
+TEMPLATE_DEBUG = DEBUG
 
-SITE_ID = 1
-ROOT_URLCONF = 'eyolfson_website.urls'
+WEBSITE_DIR = os.path.dirname(__file__)
+PROJECT_DIR = os.path.split(WEBSITE_DIR)[0]
+
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+FIXTURE_DIRS = (os.path.join(WEBSITE_DIR, 'fixtures'),)
+STATICFILES_DIRS = (os.path.join(WEBSITE_DIR, 'static'),)
+TEMPLATE_DIRS = (os.path.join(WEBSITE_DIR, 'templates'),)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -50,4 +59,5 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'django.contrib.staticfiles',
 )

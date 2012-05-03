@@ -1,2 +1,3 @@
 *.pyc
-settings_local.py
+/eyolfson_website/settings_local.py
+/eyolfson.sqlite
