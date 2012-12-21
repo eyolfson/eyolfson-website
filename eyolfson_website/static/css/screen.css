@@ -1,7 +1,11 @@
-html {margin:0;padding:0;border:0;}
+html { margin:0; padding:0; border:0; }
+header { background: #eee8d5; line-height: 1; }
+html { background-color: #fdf6e3; }
+nav { float: right; }
+
 body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
 article, aside, dialog, figure, footer, header, hgroup, nav, section {display:block;}
-body {line-height:1.5;background:white;}
+body {line-height:1.5;}
 table {border-collapse:separate;border-spacing:0;}
 caption, th, td {text-align:left;font-weight:normal;float:none !important;}
 table, th, td {vertical-align:middle;}
@@ -10,7 +14,7 @@ blockquote, q {quotes:"" "";}
 a img {border:none;}
 :focus {outline:0;}
 html {font-size:100.01%;}
-body {font-size:75%;color:#222;background:#fff;font-family:Cambria, Georgia, serif;}
+body {font-size:75%;color:#ff0000;font-family:Cambria, Georgia, serif;}
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
 h1 {font-family:Verdana, Geneva, sans-serif;}
 h1 {font-size:3em;line-height:1;margin-bottom:0.5em;}

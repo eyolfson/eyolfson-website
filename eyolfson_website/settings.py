@@ -1,9 +1,6 @@
 from settings_local import *
 import os
 
-ADMINS = (('Jon Eyolfson', 'jon@eyolfson.com'))
-MANAGERS = ADMINS
-
 TIME_ZONE = 'America/Toronto'
 LANGUAGE_CODE = 'en-us'
 USE_I18N = False
@@ -26,10 +23,10 @@ else:
 TEMPLATE_DEBUG = DEBUG
 
 WEBSITE_DIR = os.path.dirname(__file__)
-FILES_DIR = os.path.join(os.path.split(WEBSITE_DIR)[0], 'files')
+WEB_ROOT_DIR = os.path.join(os.path.split(WEBSITE_DIR)[0], 'web_root')
 
-MEDIA_ROOT = os.path.join(FILES_DIR, 'media')
-STATIC_ROOT = os.path.join(FILES_DIR, 'static')
+MEDIA_ROOT = os.path.join(WEB_ROOT_DIR, 'media')
+STATIC_ROOT = os.path.join(WEB_ROOT_DIR, 'static')
 FIXTURE_DIRS = (os.path.join(WEBSITE_DIR, 'fixtures'),)
 STATICFILES_DIRS = (os.path.join(WEBSITE_DIR, 'static'),)
 TEMPLATE_DIRS = (os.path.join(WEBSITE_DIR, 'templates'),)
@@ -56,8 +53,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.messages',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'django.contrib.messages',
     'django.contrib.staticfiles',
 )
