@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.4-0.9998 (TeX Live 2012/Arch Linux) (format=xelatex 2012.12.10)  20 DEC 2012 18:47
+This is XeTeX, Version 3.1415926-2.4-0.9998 (TeX Live 2012/Arch Linux) (format=xelatex 2012.12.10)  2 JAN 2013 15:36
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -313,7 +313,7 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
 )))
 \sa@box=\box35
 ) (/usr/share/texmf-dist/tex/latex/fontspec/fontspec.sty
-Package: fontsmen144
+Package: fontspen144
 \tikz@lastysaved=\dimen145
 \tikzleveldistance=\dimen146
 \tikzsiblingdistance=\dimen147
