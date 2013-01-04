@@ -1,18 +1,18 @@
-\documentclass[12pt,tikz,convert={density=96,outext=.ico}]{standalone}
+\documentclass[tikz,convert={density=96,outext=.ico}]{standalone}
 
-\usepackage{xcolor}
 \usepackage{fontspec}
-
-\setmainfont{DejaVu Sans Mono}
-
-\definecolor{solarized-blue}{RGB}{38,139,210}
+\usepackage{xcolor}
 \definecolor{solarized-base03}{RGB}{0,43,54}
+\definecolor{solarized-blue}{RGB}{38,139,210}
 
 \begin{document}
 
-\begin{tikzpicture}
-  \tikzstyle{every node}=[font=\tiny]
-  \node[rounded corners, fill=solarized-base03,inner sep=1mm] {\addfontfeature{Color=solarized-blue} \bfseries e};
+\begin{tikzpicture}[scale=0.8, transform shape]
+  \node[circle,fill=solarized-base03,inner sep=1pt]
+  { \fontspec{DejaVu Sans Mono}
+    \bfseries
+    {\addfontfeature{Color=solarized-blue}E}
+  };
 \end{tikzpicture}
 
 \end{document}

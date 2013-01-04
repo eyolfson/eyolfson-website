@@ -1,3 +1,10 @@
+# File extensions
+*~
+*.aux
+*.log
+*.pdf
 *.pyc
+
+# Files
 /eyolfson_website/settings_local.py
-/eyolfson.sqlite
+/eyolfson_website.sqlite

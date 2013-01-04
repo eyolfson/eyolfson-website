@@ -1,18 +1,19 @@
-\documentclass[12pt,tikz,convert={density=96}]{standalone}
+\documentclass[tikz,convert={density=96}]{standalone}
 
-\usepackage{xcolor}
 \usepackage{fontspec}
-
-\setmainfont{DejaVu Sans Mono}
-
+\usepackage{xcolor}
+\definecolor{solarized-base1}{RGB}{147,161,161}
 \definecolor{solarized-blue}{RGB}{38,139,210}
 
 \begin{document}
 
-\begin{tikzpicture}
-  \node {\addfontfeature{Color=solarized-blue} \bfseries eyolfson};
+\begin{tikzpicture}[scale=1.2, transform shape]
+  \node
+  { \fontspec{DejaVu Sans Mono}
+    \bfseries
+    {\addfontfeature{Color=solarized-blue}Eyolfson}%
+    {\addfontfeature{Color=solarized-base1}.com}
+  };
 \end{tikzpicture}
 
 \end{document}
-% c6d5de
-% 073d5f
