@@ -8,3 +8,6 @@
 # Files
 /eyolfson_website/settings_local.py
 /eyolfson_website.sqlite
+
+# Directories
+/media/

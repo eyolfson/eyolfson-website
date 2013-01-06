@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %} - CV{% endblock %}
+{% block nav-cv %} class="active"{% endblock %}
+
+{% block content %}
+      <h1>Jon Eyolfson</h1>
+      <h2>Education</h2>
+
+      <ul class="unstyled">
+        <li><strong>Ph.D., Computer Engineering</strong></li>
+        <li>University of Waterloo, September 2011&ndash;Present</li>
+        <li>Supervisor: Patrick Lam</li>
+      </ul>
+
+      <ul class="unstyled">
+        <li><strong>M.A.Sc., Computer Engineering</strong></li>
+        <li>University of Waterloo, September 2009&ndash;August 2011</li>
+        <li>Supervisor: Patrick Lam</li>
+        {% if masc %}
+        <li>Thesis: {{ masc.display|safe }}</li>
+        <li>
+          <div class="well well-small">
+            {% if masc.paper %}<a href="{{ masc.paper.url }}"><i class="icon-file"></i> Paper</a>{% endif %}
+            {% if masc.slides %}<a href="{{ masc.slides.url }}"><i class="icon-file"></i> Slides</a>{% endif %}
+            <a href="#modal-{{ masc.slug }}" id="modal-{{ masc.slug }}-label" data-toggle="modal"><i class="icon-pencil"></i> BibTeX</a>
+          </div>
+        </li>
+        {% endif %}
+      </ul>
+
+      {% if masc %}
+      <div id="modal-{{ masc.slug }}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modal-{{ masc.slug }}-label" aria-hidden="true">
+        <div class="modal-body">
+          <pre>{{ masc.bibtex }}</pre>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+      </div>
+      {% endif %}
+
+      <ul class="unstyled">
+        <li><strong>B.Sc., Computer Engineering (First Class Honours)</strong></li>
+        <li>Queen's University, September 2005&ndash;April 2009</li>
+      </ul>
+
+      {% if publications %}
+      <h2>Publications</h2>
+
+      {% for publication in publications %}
+      <ul class="unstyled">
+        <li>{{ publication.display|safe }}</li>
+        <li>
+          <div class="well well-small">
+            {% if publication.paper %}<a href="{{ publication.paper.url }}"><i class="icon-file"></i> Paper</a>{% endif %}
+            {% if publication.slides %}<a href="{{ publication.slides.url }}"><i class="icon-file"></i> Slides</a>{% endif %}
+            <a href="#modal-{{ publication.slug }}" id="modal-{{ publication.slug }}-label" data-toggle="modal"><i class="icon-pencil"></i> BibTeX</a>
+          </div>
+        </li>
+      </ul>
+
+      <div id="modal-{{ publication.slug }}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modal-{{ publication.slug }}-label" aria-hidden="true">
+        <div class="modal-body">
+          <pre>{{ publication.bibtex }}</pre>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+
+      <h2>Teaching</h2>
+
+      <ul class="unstyled">
+        <li><strong>Lab Instructor, ECE 351 (Compilers)</strong></li>
+        <li>University of Waterloo, Winter 2013</li>
+      </ul>
+
+      <ul class="unstyled">
+        <li><strong>Teaching Assistant, ECE 351 (Compilers)</strong></li>
+        <li>University of Waterloo, Spring 2012</li>
+      </ul>
+
+      <ul class="unstyled">
+        <li><strong>Instructor, ECE 459 (Programming for Performance)</strong></li>
+        <li>University of Waterloo, Winter 2012</li>
+      </ul>
+
+      <ul class="unstyled">
+        <li><strong>Teaching Assistant, ECE 459 (Programming for Performance)</strong></li>
+        <li>University of Waterloo, Winter 2011</li>
+      </ul>
+
+      <ul class="unstyled">
+        <li><strong>Teaching Assistant, ECE 251 (Programming Languages and Translators)</strong></li>
+        <li>University of Waterloo, Fall 2010</li>
+      </ul>
+
+      <ul class="unstyled">
+        <li><strong>Teaching Assistant, ECE 355 (Software Engineering)</strong></li>
+        <li>University of Waterloo, Winter 2010</li>
+      </ul>
+
+      <h2>Awards</h2>
+
+      <ul class="unstyled">
+        <li><strong>Ontario Graduate Scholarship</strong></li>
+        <li>May 2010&ndash;April 2011</li>
+      </ul>
+
+      <ul class="unstyled">
+        <li><strong>Presidents Graduate Scholarship, University of Waterloo</strong></li>
+        <li>May 2010&ndash;April 2011</li>
+      </ul>
+{% endblock %}

@@ -10,26 +10,24 @@ SITE_ID = 1
 ROOT_URLCONF = 'eyolfson_website.urls'
 WSGI_APPLICATION = 'eyolfson_website.wsgi.application'
 
+WEBSITE_DIR = os.path.dirname(__file__)
+BASE_DIR = os.path.dirname(WEBSITE_DIR)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
+
 if PRODUCTION:
     DEBUG = False
-    MEDIA_URL = 'http://www.eyolfson.com/media/'
-    STATIC_URL = 'http://www.eyolfson.com/static/'
-    ADMIN_MEDIA_PREFIX = 'http://www.eyolfson.com/static/admin/'
+    MEDIA_ROOT = '/srv/http/eyolfson.com/media/'
+    MEDIA_URL = 'https://eyolfson.com/media/'
+    STATIC_ROOT = '/srv/http/eyolfson.com/static/'
+    STATIC_URL = 'https://eyolfson.com/static/'
 else:
     DEBUG = True
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
     MEDIA_URL = '/media/'
+    STATIC_ROOT = ''
     STATIC_URL = '/static/'
-    ADMIN_MEDIA_PREFIX = '/static/admin/'
 TEMPLATE_DEBUG = DEBUG
-
-WEBSITE_DIR = os.path.dirname(__file__)
-WEB_ROOT_DIR = os.path.join(os.path.split(WEBSITE_DIR)[0], 'web_root')
-
-MEDIA_ROOT = os.path.join(WEB_ROOT_DIR, 'media')
-STATIC_ROOT = os.path.join(WEB_ROOT_DIR, 'static')
-FIXTURE_DIRS = (os.path.join(WEBSITE_DIR, 'fixtures'),)
-STATICFILES_DIRS = (os.path.join(WEBSITE_DIR, 'static'),)
-TEMPLATE_DIRS = (os.path.join(WEBSITE_DIR, 'templates'),)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -57,4 +55,5 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.staticfiles',
+    'publications',
 )

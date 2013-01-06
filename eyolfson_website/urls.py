@@ -1,25 +1,15 @@
 from django.conf import settings
-from django.conf.urls.defaults import *
+from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from django.views.generic import TemplateView
 
-# from django.contrib.sitemaps import FlatPageSitemap
-# from eyolfson_website.apps.blog.sitemap import BlogSitemap
+from eyolfson_website import views
 
 admin.autodiscover()
 
-# sitemaps = { 
-#     'blog': BlogSitemap,
-#     'flatpages': FlatPageSitemap,
-# }
-
 urlpatterns = patterns('',
-    (r'^$', TemplateView.as_view(template_name="index.html")),
-    (r'^admin/', include(admin.site.urls)),
-    #(r'^scc/', include('eyolfson_website.apps.scc.urls', namespace='scc', app_name='scc')),
-    # (r'^blog/', include('eyolfson_website.apps.blog.urls')),
-    # (r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap',
-    #  {'sitemaps': sitemaps}),
+    url(r'^$', views.home, name='home'),
+    url(r'^cv/$', views.cv, name='cv'),
+    url(r'^admin/', include(admin.site.urls)),
 )
 
 if not settings.PRODUCTION:

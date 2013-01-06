@@ -1,4 +1,4 @@
-all: ../static/images/favicon.ico ../static/images/logo.png
+all: ../static/images/favicon.ico # ../static/images/logo.png
 
 ../static/images/favicon.ico: favicon.tex
 	@echo "[XELATEX] $<"
@@ -8,11 +8,11 @@ all: ../static/images/favicon.ico ../static/images/logo.png
 	@echo "[MV] $@"
 	@mv $(<:.tex=-0.ico) $@
 
-../static/images/logo.png: logo.tex
-	@echo "[XELATEX] $<"
-	@xelatex -interaction=nonstopmode -shell-escape $< &> /dev/null
-	@echo "[MV] $@"
-	@mv $(<:.tex=-0.png) $@
+# ../static/images/logo.png: logo.tex
+# 	@echo "[XELATEX] $<"
+# 	@xelatex -interaction=nonstopmode -shell-escape $< &> /dev/null
+# 	@echo "[MV] $@"
+# 	@mv $(<:.tex=-0.png) $@
 
 .PHONY: clean
 clean:
