@@ -23,6 +23,7 @@
           <a class="brand" href="{% url 'home' %}">Eyolfson</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
+              <li{% block nav-teaching %}{% endblock %}><a href="{% url 'teaching:home' %}">Teaching</a></li>
               <li{% block nav-cv %}{% endblock %}><a href="{% url 'cv' %}">CV</a></li>
             </ul>
           </div>
