@@ -6,4 +6,4 @@ from teaching.models import Offering
 
 def home(request):
     return render(request, 'teaching/home.html',
-                  {'offering': Offering.objects.get(id=1)})
+                  {'offerings': Offering.objects.all()})

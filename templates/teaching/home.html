@@ -6,6 +6,7 @@
 {% block content %}
 <h1>Teaching</h1>
 
+{% for offering in offerings %}
 <h2>{{ offering }}</h2>
 
 {% if offering.outline_file or offering.midterm_file or offering.final_file %}
@@ -43,4 +44,5 @@
   {% endfor %}
 </ul>
 {% endif %}
+{% endfor %}
 {% endblock %}
