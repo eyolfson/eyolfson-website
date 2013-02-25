@@ -21,6 +21,7 @@ if PRODUCTION:
     MEDIA_URL = 'https://eyolfson.com/media/'
     STATIC_ROOT = '/srv/http/eyolfson.com/static/'
     STATIC_URL = 'https://eyolfson.com/static/'
+    ALLOWED_HOSTS = ['eyolfson.com']
 else:
     DEBUG = True
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
