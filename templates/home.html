@@ -17,6 +17,8 @@ Server = http://aur.eyolfson.com/$arch</pre>
   {% for post in blog_posts %}
       <h2>{{ post.title }}</h2>
 
+      <p><strong>Posted: {{ post.date_time }}</strong></p>
+      
       {{ post.text|safe }}
   {% endfor %}
 {% endblock %}
