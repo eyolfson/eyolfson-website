@@ -13,4 +13,10 @@
 
       <pre>[eyolfson]
 Server = http://aur.eyolfson.com/$arch</pre>
+
+  {% for post in blog_posts %}
+      <h2>{{ post.title }}</h2>
+
+      {{ post.text|safe }}
+  {% endfor %}
 {% endblock %}

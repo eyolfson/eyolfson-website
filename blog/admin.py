@@ -1,4 +1,5 @@
-# from eyolfson.apps.blog.models import Post
-# from django.contrib import admin
+from django.contrib import admin
 
-# admin.site.register(Post)
+from blog.models import *
+
+admin.site.register(Post)

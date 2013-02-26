@@ -1,9 +1,11 @@
 from django.shortcuts import render
 
+from blog.models import Post
 from publications.models import Publication
 
 def home(request):
-    return render(request, 'home.html')
+    blog_posts = Post.objects.all()
+    return render(request, 'home.html', {'blog_posts': blog_posts})
 
 def cv(request):
     context = {}
