@@ -59,4 +59,5 @@ INSTALLED_APPS = (
     'blog',
     'publications',
     'teaching',
+    'annavladwedding',
 )
