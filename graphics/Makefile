@@ -1,18 +1,12 @@
-all: ../static/images/favicon.ico # ../static/images/logo.png
+all: ../static/images/favicon.png ../static/images/icon.png
 
-../static/images/favicon.ico: favicon.tex
+../static/images/%.png: %.tex
 	@echo "[XELATEX] $<"
 	@xelatex -interaction=nonstopmode -shell-escape $< &> /dev/null
-	@echo "[CONVERT] $(<:.tex=-0.ico)"
-	@convert $(<:.tex=-0.ico) -background transparent -gravity center -extent 16x16 $(<:.tex=-0.ico)
+	@echo "[CONVERT] $(<:.tex=-0.png)"
+	@convert $(<:.tex=-0.png) -background transparent -gravity center -extent 32x32 $(<:.tex=-0.png)
 	@echo "[MV] $@"
-	@mv $(<:.tex=-0.ico) $@
-
-# ../static/images/logo.png: logo.tex
-# 	@echo "[XELATEX] $<"
-# 	@xelatex -interaction=nonstopmode -shell-escape $< &> /dev/null
-# 	@echo "[MV] $@"
-# 	@mv $(<:.tex=-0.png) $@
+	@mv $(<:.tex=-0.png) $@
 
 .PHONY: clean
 clean:
