@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} - Software{% endblock %}
+{% block nav-software %} class="active"{% endblock %}
+
+{% block content %}
+      <h1>Software</h1>
+
+      <h2>aur-eyolfson</h2>
+
+      <p>This is my custom ArchLinux package repository for my AUR packages. If
+      you would like to use it add the following to
+      <code>/etc/pacman.conf</code>:</p>
+
+      <pre>[eyolfson]
+Server = http://aur.eyolfson.com/$arch</pre>
+{% endblock %}

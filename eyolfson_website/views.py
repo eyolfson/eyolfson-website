@@ -7,6 +7,9 @@ def home(request):
     blog_posts = Post.objects.all()
     return render(request, 'home.html', {'blog_posts': blog_posts})
 
+def software(request):
+    return render(request, 'software.html')
+
 def cv(request):
     context = {}
     try:

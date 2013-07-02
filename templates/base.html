@@ -24,10 +24,8 @@
           <a class="brand" href="{% url 'home' %}">eyolfson.ca</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a href="/">Software</a></li>
-              <li><a href="/">Publications</a></li>
+              <li{% block nav-software %}{% endblock %}><a href="{% url 'software' %}">Software</a></li>
               <li{% block nav-teaching %}{% endblock %}><a href="{% url 'teaching:home' %}">Teaching</a></li>
-              <li><a href="/">Blog</a></li>
               <li{% block nav-cv %}{% endblock %}><a href="{% url 'cv' %}">CV</a></li>
             </ul>
           </div>
