@@ -17,10 +17,10 @@ TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 
 if PRODUCTION:
     DEBUG = False
-    MEDIA_ROOT = '/srv/http/eyolfson.com/media/'
-    MEDIA_URL = 'https://eyolfson.com/media/'
-    STATIC_ROOT = '/srv/http/eyolfson.com/static/'
-    STATIC_URL = 'https://eyolfson.com/static/'
+    MEDIA_ROOT = '/srv/http/eyolfson.ca/media/'
+    MEDIA_URL = 'https://eyolfson.ca/media/'
+    STATIC_ROOT = '/srv/http/eyolfson.ca/static/'
+    STATIC_URL = 'https://eyolfson.ca/static/'
     ALLOWED_HOSTS = ['eyolfson.ca']
 else:
     DEBUG = True
