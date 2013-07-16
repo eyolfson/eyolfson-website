@@ -9,7 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', views.home, name='home'),
     url(r'^software/$', views.software, name='software'),
-    url(r'^software/aur-eyolfson/', include('django_aur.urls')),
+    url(r'^software/aur/', include('django_aur.urls')),
     url(r'^cv/$', views.cv, name='cv'),
     url(r'^teaching/', include('teaching.urls', namespace='teaching')),
     url(r'^admin/', include(admin.site.urls)),
