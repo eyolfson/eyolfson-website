@@ -36,14 +36,15 @@ class Command(BaseCommand):
                 shutil.copy(package_file, path)
 
             try:
-                previous = Update.objects.filter(package=package).latest('time')
+                previous = Update.objects.filter(package=package,
+                                                 arch=arch).latest('time')
                 previous_file = '{}-{}-{}{}'.format(previous.package,
                                                     previous.version,
-                                                    previous.arch,
+                                                    arch,
                                                     extension)
-                previous_dirname = os.path.join(settings.AUR_ROOT, previous.arch)
+                previous_dirname = os.path.join(settings.AUR_ROOT, arch)
                 previous_path = os.path.join(previous_dirname, previous_file)
-                if previous.arch == 'any':
+                if arch == 'any':
                     for link_arch in settings.AUR_ANY:
                         link_dirname = os.path.join(settings.AUR_ROOT, link_arch)
                         link_path = os.path.join(link_dirname, previous_file)
@@ -53,7 +54,7 @@ class Command(BaseCommand):
                                 link_dirname, repo_file), previous.package])
                             os.unlink(link_path)
                 if os.path.exists(previous_path):
-                    if previous.arch != 'any':
+                    if arch != 'any':
                         subprocess.check_call(['repo-remove', os.path.join(
                             previous_dirname, repo_file), previous.package])
                     os.remove(previous_path)
