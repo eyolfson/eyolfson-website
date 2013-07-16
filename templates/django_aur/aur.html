@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %} - Software{% endblock %}
+{% block nav-software %} class="active"{% endblock %}
+
+{% block content %}
+      <h1>aur-eyolfson</h1>
+
+      <h2>Usage</h2>
+
+      <p>If you would like to use my repository add the following to
+      <code>/etc/pacman.conf</code>:</p>
+
+      <pre>[eyolfson]
+SigLevel = Optional
+Server = http://aur.eyolfson.ca/$arch</pre>
+
+  {% if updates %}
+      <h2>Updates</h2>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>Arch</th>
+            <th>Version</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+      {% for update in updates %}
+          <tr>
+            <td>{{ update.package }}</td>
+            <td>{{ update.arch }}</td>
+            <td>{{ update.version }}</td>
+            <td>{{ update.time }}</td>
+          </tr>
+      {% endfor %}
+        </tbody>
+      </table>
+  {% endif %}
+{% endblock %}

@@ -30,6 +30,10 @@ else:
     STATIC_URL = '/static/'
 TEMPLATE_DEBUG = DEBUG
 
+AUR_REPOSITORY = 'eyolfson'
+AUR_ROOT = '/srv/http/aur.eyolfson.ca'
+AUR_ANY = ('i686', 'x86_64')
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -57,6 +61,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'blog',
+    'django_aur',
     'publications',
     'teaching',
     'annavladwedding',
