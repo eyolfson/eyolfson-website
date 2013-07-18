@@ -11,12 +11,13 @@ class Command(BaseCommand):
     help = 'Updates the specified package files'
 
     def handle(self, *args, **options):
+        extension = '.pkg.tar.xz'
+        repo_db_file = '{}.db.tar.gz'.format(settings.AUR_REPOSITORY)
+        repo_files_file = '{}.files.tar.gz'.format(settings.AUR_REPOSITORY)
         for package_file in args:
             if not os.path.exists(package_file):
                 raise CommandError("Package file '{}' does not exist"
                                    .format(package_file))
-            extension = '.pkg.tar.xz'
-            repo_file = '{}.db.tar.gz'.format(settings.AUR_REPOSITORY)
             if not package_file.endswith(extension):
                 raise CommandError("Package file '{}' unknown extension"
                                    .format(package_file))
@@ -51,12 +52,16 @@ class Command(BaseCommand):
                         if os.path.exists(link_path):
                             self.stdout.write(link_path)
                             subprocess.check_call(['repo-remove', os.path.join(
-                                link_dirname, repo_file), previous.package])
+                                link_dirname, repo_db_file), previous.package])
+                            subprocess.check_call(['repo-remove', os.path.join(
+                                link_dirname, repo_files_file), previous.package])
                             os.unlink(link_path)
                 if os.path.exists(previous_path):
                     if arch != 'any':
                         subprocess.check_call(['repo-remove', os.path.join(
-                            previous_dirname, repo_file), previous.package])
+                            previous_dirname, repo_db_file), previous.package])
+                        subprocess.check_call(['repo-remove', os.path.join(
+                            previous_dirname, repo_files_file), previous.package])
                     os.remove(previous_path)
             except Update.DoesNotExist:
                 pass
@@ -70,10 +75,14 @@ class Command(BaseCommand):
                     if not os.path.exists(link_path):
                         os.symlink(path, link_path)
                     subprocess.check_call(['repo-add', os.path.join(
-                        link_dirname, repo_file), link_path])
+                        link_dirname, repo_db_file), link_path])
+                    subprocess.check_call(['repo-add', '-f', os.path.join(
+                        link_dirname, repo_files_file), link_path])
             else:
                 subprocess.check_call(['repo-add', os.path.join(
-                    dirname, repo_file), path])
+                    dirname, repo_db_file), path])
+                subprocess.check_call(['repo-add', '-f', os.path.join(
+                    dirname, repo_files_file), path])
 
             Update.objects.create(package=package, version=version, arch=arch)
             self.stdout.write("Successfully updated package file '{}'"
