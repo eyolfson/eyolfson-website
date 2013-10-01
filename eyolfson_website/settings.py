@@ -64,5 +64,4 @@ INSTALLED_APPS = (
     'django_aur',
     'publications',
     'teaching',
-    'annavladwedding',
 )

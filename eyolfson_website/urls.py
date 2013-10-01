@@ -13,7 +13,6 @@ urlpatterns = patterns('',
     url(r'^cv/$', views.cv, name='cv'),
     url(r'^teaching/', include('teaching.urls', namespace='teaching')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^annavladwedding/$', 'annavladwedding.views.home'),
 )
 
 if not settings.PRODUCTION:
