@@ -13,31 +13,31 @@
   </head>
 
   <body>
-    <div class="navbar navbar-inverse navbar-static-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="{% url 'home' %}">eyolfson.ca</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li{% block nav-software %}{% endblock %}><a href="{% url 'software' %}">Software</a></li>
-              <li{% block nav-teaching %}{% endblock %}><a href="{% url 'teaching:home' %}">Teaching</a></li>
-              <li{% block nav-cv %}{% endblock %}><a href="{% url 'cv' %}">CV</a></li>
-            </ul>
-          </div>
-        </div>
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'home' %}">eyolfson.ca</a>
       </div>
-    </div>
+
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li{% block nav-software %}{% endblock %}><a href="{% url 'software' %}">Software</a></li>
+          <li{% block nav-teaching %}{% endblock %}><a href="{% url 'teaching:home' %}">Teaching</a></li>
+          <li{% block nav-cv %}{% endblock %}><a href="{% url 'cv' %}">CV</a></li>
+        </ul>
+      </div>
+    </nav>
 
     <div class="container">
 {% block content %}{% endblock %}
     </div>
 
-    <script src="{% static "javascript/jquery.js" %}"></script>
-    <script src="{% static "javascript/bootstrap.js" %}"></script>
+    <script src="{% static "js/jquery.js" %}"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
   </body>
 </html>

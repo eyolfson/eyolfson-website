@@ -12,7 +12,7 @@
 {% if offering.outline_file or offering.midterm_file or offering.final_file %}
 <h3>Materials</h3>
 
-<ul class="unstyled">
+<ul class="list-unstyled">
   {% if offering.outline_file %}
   <li><a href="{{ offering.outline_file.url }}">Outline</a></li>
   {% endif %}
@@ -28,7 +28,7 @@
 {% if offering.lectures.exists %}
 <h3>Lectures</h3>
 
-<ul class="unstyled">
+<ul class="list-unstyled">
   {% for lecture in offering.lectures.all %}
   <li><a href="{{ lecture.file.url }}">{{ lecture }}</a></li>
   {% endfor %}
@@ -38,7 +38,7 @@
 {% if offering.assignments.exists %}
 <h3>Assignments</h3>
 
-<ul class="unstyled">
+<ul class="list-unstyled">
   {% for assignment in offering.assignments.all %}
   <li><a href="{{ assignment.file.url }}">{{ assignment }}</a></li>
   {% endfor %}
