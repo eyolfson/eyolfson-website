@@ -24,9 +24,9 @@
         <li>Thesis: {{ masc.display|safe }}</li>
         <li>
           <div class="well well-small">
-            {% if masc.paper %}<a href="{{ masc.paper.url }}"><i class="icon-file"></i> Paper</a>{% endif %}
-            {% if masc.slides %}<a href="{{ masc.slides.url }}"><i class="icon-file"></i> Slides</a>{% endif %}
-            <a href="#modal-{{ masc.slug }}" id="modal-{{ masc.slug }}-label" data-toggle="modal"><i class="icon-pencil"></i> BibTeX</a>
+            {% if masc.paper %}<a href="{{ masc.paper.url }}"><span class="glyphicon glyphicon-file"></span> Paper</a>{% endif %}
+            {% if masc.slides %}<a href="{{ masc.slides.url }}"><span class="glyphicon glyphicon-file"></span> Slides</a>{% endif %}
+            <a href="#modal-{{ masc.slug }}" id="modal-{{ masc.slug }}-label" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span> BibTeX</a>
           </div>
         </li>
         {% endif %}
@@ -56,9 +56,9 @@
         <li>{{ publication.display|safe }}</li>
         <li>
           <div class="well well-small">
-            {% if publication.paper %}<a href="{{ publication.paper.url }}"><i class="icon-file"></i> Paper</a>{% endif %}
-            {% if publication.slides %}<a href="{{ publication.slides.url }}"><i class="icon-file"></i> Slides</a>{% endif %}
-            <a href="#modal-{{ publication.slug }}" id="modal-{{ publication.slug }}-label" data-toggle="modal"><i class="icon-pencil"></i> BibTeX</a>
+            {% if publication.paper %}<a href="{{ publication.paper.url }}"><span class="glyphicon glyphicon-file"></span> Paper</a>{% endif %}
+            {% if publication.slides %}<a href="{{ publication.slides.url }}"><span class="glyphicon glyphicon-file"></span> Slides</a>{% endif %}
+            <a href="#modal-{{ publication.slug }}" id="modal-{{ publication.slug }}-label" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span> BibTeX</a>
           </div>
         </li>
       </ul>
