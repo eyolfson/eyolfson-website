@@ -19,3 +19,6 @@ def cv(request):
         pass
     context['publications'] = Publication.objects.exclude(slug='masc-eyolfson').order_by('-pub_date')
     return render(request, 'cv.html', context)
+
+def about(request):
+    return render(request, 'about.html')

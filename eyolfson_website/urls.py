@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^software/$', views.software, name='software'),
     url(r'^software/aur/', include('django_aur.urls')),
     url(r'^cv/$', views.cv, name='cv'),
+    url(r'^about/$', views.about, name='about'),
     url(r'^teaching/', include('teaching.urls', namespace='teaching')),
     url(r'^admin/', include(admin.site.urls)),
 )
