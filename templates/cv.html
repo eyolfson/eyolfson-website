@@ -26,22 +26,11 @@
           <div class="well well-small">
             {% if masc.paper %}<a href="{{ masc.paper.url }}"><span class="glyphicon glyphicon-file"></span> Paper</a>{% endif %}
             {% if masc.slides %}<a href="{{ masc.slides.url }}"><span class="glyphicon glyphicon-file"></span> Slides</a>{% endif %}
-            <a href="#modal-{{ masc.slug }}" id="modal-{{ masc.slug }}-label" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span> BibTeX</a>
+            <a href="{% url 'bibtex' masc.slug %}"><span class="glyphicon glyphicon-pencil"></span> BibTeX</a>
           </div>
         </li>
         {% endif %}
       </ul>
-
-      {% if masc %}
-      <div id="modal-{{ masc.slug }}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modal-{{ masc.slug }}-label" aria-hidden="true">
-        <div class="modal-body">
-          <pre>{{ masc.bibtex }}</pre>
-        </div>
-        <div class="modal-footer">
-          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        </div>
-      </div>
-      {% endif %}
 
       <ul class="list-unstyled">
         <li><strong>B.Sc., Computer Engineering (First Class Honours)</strong></li>
@@ -58,19 +47,10 @@
           <div class="well well-small">
             {% if publication.paper %}<a href="{{ publication.paper.url }}"><span class="glyphicon glyphicon-file"></span> Paper</a>{% endif %}
             {% if publication.slides %}<a href="{{ publication.slides.url }}"><span class="glyphicon glyphicon-file"></span> Slides</a>{% endif %}
-            <a href="#modal-{{ publication.slug }}" id="modal-{{ publication.slug }}-label" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span> BibTeX</a>
+            <a href="{% url 'bibtex' publication.slug %}"><span class="glyphicon glyphicon-pencil"></span> BibTeX</a>
           </div>
         </li>
       </ul>
-
-      <div id="modal-{{ publication.slug }}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modal-{{ publication.slug }}-label" aria-hidden="true">
-        <div class="modal-body">
-          <pre>{{ publication.bibtex }}</pre>
-        </div>
-        <div class="modal-footer">
-          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        </div>
-      </div>
       {% endfor %}
       {% endif %}
 

@@ -62,6 +62,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'blog',
     'django_aur',
-    'publications',
+    'django_publications',
     'teaching',
 )

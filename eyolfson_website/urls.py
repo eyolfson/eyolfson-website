@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^about/$', views.about, name='about'),
     url(r'^teaching/', include('teaching.urls', namespace='teaching')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^publications/', include('django_publications.urls')),
 )
 
 if not settings.PRODUCTION:

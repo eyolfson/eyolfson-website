@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %} - CV{% endblock %}
+{% block nav-cv %} class="active"{% endblock %}
+
+{% block content %}
+      <h1>BibTeX</h1>
+
+      <pre>{{ publication.bibtex|safe }}</pre>
+{% endblock %}

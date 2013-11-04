@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from blog.models import Post
-from publications.models import Publication
+from django_publications.models import Publication
 
 def home(request):
     blog_posts = Post.objects.all()
